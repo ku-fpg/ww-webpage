@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+
+  <div class="container">
+
+  <HR>
+
+
+
+<form class="form-horizontal" role="form">
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">A (Original Type)</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputA" value="A">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">B (Target Type)</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputB" value="B">
+    </div>
+  </div>
+</form>
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">    
+<div class="btn-toolbar" role="toolbar">
+<div class="btn-group">
+  <button type="button" class="btn btn-default active"><code>&#x3bc;</code></button>
+  <button type="button" class="btn btn-default"><code>fix</code></button>
+</div>
+<div class="btn-group">
+  <button type="button" class="btn btn-default active"><code>&#x2218;</code></button>
+  <button type="button" class="btn btn-default"><code>.</code></button>
+</div>
+</div>
+
+    </div>
+  </div>
+
+  <HR>
+    <h3>Functions and Types</h3>
+
+    <div class="col-md-10 col-md-offset-1">
+      <table class="table table-condensed">
+        <tr>
+        	<td>abs ::</td>
+          <td><code class="B">B</code> -> <code class="A">A</code></td>
+        </tr>
+        <tr>
+        	<td>rep ::</td>
+          <td><code class="A">A</code> -> <code class="B">B</code></td>
+        </tr>
+        <tr>
+          <td>f ::</td>
+          <td><code class="A">A</code> -> <code class="A">A</code></td>
+        </tr>
+        <tr>
+          <td>g ::</td>
+          <td><code class="B">B</code> -> <code class="B">B</code></td>
+        </tr>
+        <tr>
+          <td>cxt ::</td>
+          <td><code class="B">B</code> -> C</td>
+        </tr>
+      </table>
+      </div>
+
+    <HR>
+
+
+  <h3>Worker/wrapper assumptions</h3>
+
+      <div class="col-md-10 col-md-offset-1">
+        <table class="table table-condensed">
+          <tr>
+            <td><button type="button" class="btn btn-xs btn-default active"><code>(A)</code></button></td>
+            <td><code>abs &#x2218; rep</td><td>=<sub><code>A->A</code></sub></td><td>id</code></td>
+            <td><input type="checkbox"></td>
+          </tr>
+          <tr>
+            <td>(B)</td>
+            <td><code>abs &#x2218; rep &#x2218; f</td><td>=<sub><code>A->A</code></sub></td><td>f</code></td>
+            <td><input type="checkbox"></td>
+          </tr>
+          <tr>
+            <td>(C)</td>
+            <td><code>&#x3bc;(abs &#x2218; rep &#x2218; f)</td><td>=<sub><code>A</code></sub></td><td>fix f</code></td>
+            <td><input type="checkbox"></td>
+          </tr>
+          <tr>
+            <td>(D)</td>
+            <td><code>cxt (fix (abs &#x2218; rep &#x2218; f))</td><td>=<sub><code>C</code></sub></td><td>cxt (fix f)</code></td>
+            <td><input type="checkbox"></td>
+          </tr>
+        </table>
+      </div>
+
+
+  <h3>Worker/wrapper conditions</h3>
+
+  <p>Here are the conditions you can use, to relate f and g.</p>
+
+
+  <div class="row">
+      <div class="col-md-6 col-md-offset-1">
+        <table class="table table-condensed">
+
+          <tr>
+            <td>(1)</td>
+            <td></td><td>g</td><td></td><td>=<sub><code>B->B</code></sub></td><td align="right">rep &#x2218; </td><td>f</td><td> &#x2218; abs</td>
+          </tr>
+          <tr>
+            <td>(1b)</td>
+            <td align="right">fix</td><td>g</td><td></td><td>=<sub><code>B</code></sub></td><td align="right">fix (rep &#x2218; </td><td>f</td><td> &#x2218; abs)</td>
+          </tr>
+          <tr>
+            <td>(2)</td>
+            <td align="right"></td><td>g</td><td>&#x2218; rep</td><td>=<sub><code>A->B</code></sub></td><td align="right">rep &#x2218; </td><td>f</td><td></td>
+          </tr>
+          <tr>
+            <td>(2b)</td>
+            <td align="right">fix</td><td>g</td><td></td><td>=<sub><code>B</code></sub></td><td align="right">rep (fix </td><td>f</td><td>)</td>
+          </tr>
+          <tr>
+            <td>(3)</td>
+            <td align="right">abs &#x2218;</td><td>g</td><td></td><td>=<sub><code>B->A</code></sub></td><td align="right"></td><td>f</td><td> &#x2218; abs</td>
+          </tr>
+        </table>
+      </div>
+  </div>
+
+
+  <h3>Worker/wrapper factorization</h3>
+
+
+  <code>fix f = abs (fix g)</code>
+
+  </div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+    $(function() {
+      console.log("INPUT");
+      $("#inputA").keyup(function() {
+        content = $("#inputA").val();
+        $(".A").html("(" + content + ")")
+      });
+      $("#inputB").keyup(function() {
+        content = $("#inputB").val();
+        $(".B").html("(" + content + ")")
+      });
+    });
+    </script>
+
+  </body>
+</html>
